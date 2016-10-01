@@ -8,10 +8,12 @@ class CreaturesController < ApplicationController
   end
 
   def create
-    creature = Creature.new(creature_params)
+    @creature = Creature.new(creature_params)
 
-    if creature.save
-      redirect_to creature_path(creature)
+    if @creature.save
+      redirect_to @creature
+    else
+      redirect_to new_creature_path
     end
   end
 
@@ -32,11 +34,11 @@ class CreaturesController < ApplicationController
   def update
     creature_id = params[:id]
 
-    creature = Creature.find_by_id(creature_id)
+    @creature = Creature.find_by_id(creature_id)
 
-    creature.update_attributes(creature_params)
+    @creature.update_attributes(creature_params)
 
-    redirect_to creature_path(creature)
+    redirect_to creature_path(@creature)
 
   end
 
