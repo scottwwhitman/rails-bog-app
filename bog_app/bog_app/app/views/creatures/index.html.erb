@@ -1,6 +1,10 @@
+<h1>Creatures</h1>
+<hr>
 <% @creatures.each do |creature| %>
   <p>
+    <br>
     <strong>Name:</strong> <%= creature.name %><br>
     <strong>Description:</strong> <%= creature.description %>
+    <hr>
   </p>
 <% end %>
